@@ -1,16 +1,36 @@
-import { getProperties} from "../services/PropertiesServices.js"
-
-import	ExchangeRateServices from  "../services/ExchangeRateServices.js";
-
-import {parseToCLPCurrency, clpToUf} from "../utils/getExchangeRate.js";
+import { getProperties } from "../services/PropertiesServices.js";
+import ExchangeRateServices from "../services/ExchangeRateServices.js";
+import { parseToCLPCurrency, clpToUf } from "../utils/getExchangeRate.js";
+import { PropertyData, limitDataApi } from "../Data/userId.js";
+import apiCallMap from "../propiedad/apiMapProp.js";
 
 // import { getProps } from "../utils/pagPropiedad.js";
 
+
+
 export default async function apiCallPropMap() {
+    const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
+    let response;
+    
+    let storedGlobalResponse = localStorage.getItem('globalResponse');
+    if (storedGlobalResponse) {
+        response = JSON.parse(storedGlobalResponse);
+        let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+        localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+        /* localStorage.setItem('countPage', JSON.stringify(1)); */
+    }
+    else {
+        //* el segundo digito es el limit
+        response = await getProperties(1, limitDataApi.limit, CodigoUsuarioMaestro, 1, companyId, realtorId);
+        //* Guardar el response en el localStorage
+        localStorage.setItem('globalResponse', JSON.stringify(response));
 
-const response = await getProperties(0, 1, 1);
-const data = response.data;
+        let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+        localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+        localStorage.setItem('countPage', JSON.stringify(1));
+    }
 
+let data = response.data;
 const response2 = await ExchangeRateServices.getExchangeRateUF();
 const ufValue = response2?.UFs[0]?.Valor
 const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
@@ -47,12 +67,14 @@ document.getElementById("total-prop").innerHTML = `<span>${response.meta.totalIt
     `<li class="splide__slide">
     <div class="col-xs-12 col-md-6 col-lg-12 col-sm-12 carta-grilla">
     <div class="property-item text-center">
-        <a href="/property-single.html?${data.id}&statusId=${1}&companyId=${1}"" class="img">
+        <a href="/property-single.html?${data.id}&realtor=${realtorId}&statusId=${1}&companyId=${companyId}" class="img">
             <img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
         </a>
         <div class="property-content border">
             <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad" }, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>
-            <span class="city d-block mb-3 texto-titulo" style="font-weight: bold;font-size: 25px;">${data.title}</span>
+            <a href="/property-single.html?${data.id}&realtor=${realtorId}&statusId=${1}&companyId=${companyId}">
+                <span class="city d-block mb-3 texto-titulo" style="font-weight: bold;font-size: 25px;">${data.title != null && data.title != undefined ? data.title : "No cuenta con titulo"}</span>
+            </a>
             <p style="font-size: 20px;">REF: ${data.id}</p>
 
             <div class="" style="border-top: 2px solid #ffb649;">
@@ -83,11 +105,22 @@ document.getElementById("total-prop").innerHTML = `<span>${response.meta.totalIt
 </li>`).join('');
 
 let splide = new Splide(".splide", {
-    // type    : 'loop',
-    perPage : 3,
+    type    : 'loop',
+    perPage : 2,
     autoplay: 'play',
-    // autoWidth: true,
-    drag:true,    
+    drag:true,   
+    breakpoints: {
+        1200:{
+         perPage:2
+        },
+        990:{
+        perPage : 1,
+        focus:'center'     
+        },
+       766:{
+        perPage : 1
+       } 
+    }
 });
 splide.mount();
 

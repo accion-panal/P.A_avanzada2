@@ -10392,12 +10392,13 @@ html {
 }
 
 
-@media screen and (max-width: 992px){
+ /* @media screen and (max-width: 990px){
   .splide__slide{
     width: 100% !important;
   }
 
-}
+} */
+/*
 @media screen and (max-width: 880px){
   .splide__slide{
     width: 100% !important;
@@ -10410,4 +10411,4 @@ html {
     width: 100% !important;
   }
 
-}
+} */

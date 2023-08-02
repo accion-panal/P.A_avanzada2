@@ -25,20 +25,14 @@ const map = new mapboxgl.Map({
     center: [parseFloat(LngLat[0]), parseFloat(LngLat[1])],
     projection: 'globe',
     zoom: 15,
-    
 });
-
 	const UbiProp = [parseFloat(LngLat[0]), parseFloat(LngLat[1])];
-
             // create the popup
             const popup = new mapboxgl.Popup({ offset: 25 }).setText(`
             ${data.title}`)
-            
             // create DOM element for the marker
             const ubicacion = document.createElement('div');
             ubicacion.id = 'marker';
- 
-        
             new mapboxgl.Marker({
                 color: '#ffb649',
                 scale: .8
@@ -46,6 +40,4 @@ const map = new mapboxgl.Map({
                 .setLngLat(UbiProp)
                 .setPopup(popup) // sets a popup on this marker
                 .addTo(map);
-
-
             }

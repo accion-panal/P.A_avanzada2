@@ -18,7 +18,7 @@ let imagenes;
 
 
 document.getElementById('title-cod-ubi-prop').innerHTML = `
-<h1 class="heading " style="font-weight: bold; color: #4D4D4D;">${data.title}</h1>
+<h1 class="heading " style="font-weight: bold; color: #4D4D4D;">${data.title != undefined && data.title != null ? data.title : "No cuenta con titulo"}</h1>
 <p>REF:${data.id}</p>
 <p>
     <i class="fa fa-map-marker "  aria-hidden="true"></i>
@@ -34,7 +34,7 @@ document.getElementById('price-uf-opera-prop').innerHTML = `
 							</b>
 						</div>
 						<div class="col-12" style="display: flex;justify-content: right;">
-							<h4 class="heading" style="color:#ffb649;"> CLP   ${parseToCLPCurrency(data?.price)}</h4>
+							<h4 class="heading" style="color:#ffb649;"> CLP ${parseToCLPCurrency(data?.price)}</h4>
 						</div>
 					</div>`;
 
@@ -87,6 +87,25 @@ document.getElementById('caract-prop').innerHTML =  `
 									</div>
 								</div>
 							</div>`;
+
+		document.getElementById('realtor-data').innerHTML = `
+		<div class="col-lg-12 col-sm-12" style="padding-top: 2%;">
+			<p style="font-size: 22px;"><b>${data?.realtor.name || "No se encuentra nombre de corredor"} ${data?.realtor.lastName || ""}</b></p>
+		</div>
+		<div class="col-12">
+			<p style="font-size: 16px ;font-weight: bold;">
+			<i class="fa fa-envelope-open "aria-hidden="true"></i>
+			${data?.realtor.mail || "No se encuentra email del corredor"}
+		</p>
+		</div>
+
+		<div class="col-12">
+			<p style="font-size: 16px; font-weight: bold;">
+				<i class="fa fa-whatsapp" aria-hidden="true"></i>
+				${data?.realtor.contactPhone != null && data.realtor.contactPhone != undefined ? data.realtor.contactPhone : "No se encuentra nombre de corredor" }
+			</p>
+		</div>
+`
 
 }
 
