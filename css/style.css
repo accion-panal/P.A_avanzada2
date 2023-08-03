@@ -10321,9 +10321,19 @@ html {
 @media screen and (max-width: 766px) {
   .logo-emp{
     margin-top: 80px;
-    margin-left: 80px;
+    margin-left: 50px;
     width: 70% !important;
     height: 80%;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .logo-emp{
+    margin-top: 50px;
+    margin-left: 30px;
+    width: 80% !important;
+    height: 90%;
   }
 }
 
@@ -10391,24 +10401,23 @@ html {
   transition: 0.2s ease-in-out !important;
 }
 
-
- /* @media screen and (max-width: 990px){
-  .splide__slide{
-    width: 100% !important;
-  }
-
-} */
-/*
-@media screen and (max-width: 880px){
-  .splide__slide{
-    width: 100% !important;
-  }
-
+.img-carroucel{
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
 }
 
-@media screen and (max-width: 766px){
-  .splide__slide{
-    width: 100% !important;
-  }
+.img-carroucel-modal{
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+}
 
-} */
+.list-caract-gral{
+  list-style: none;
+  display: block;
+}
+
+.list-caract-gral li{
+  margin: 10px;
+}

@@ -67,8 +67,8 @@ document.getElementById("total-prop").innerHTML = `<span>${response.meta.totalIt
     `<li class="splide__slide">
     <div class="col-xs-12 col-md-6 col-lg-12 col-sm-12 carta-grilla">
     <div class="property-item text-center">
-        <a href="/property-single.html?${data.id}&realtor=${realtorId}&statusId=${1}&companyId=${companyId}" class="img">
-            <img src="images/img_1.jpg.png" alt="Image" class="img-fluid">
+        <a href="/property-single.html?${data.id}&realtorId=${realtorId}&statusId=${1}&companyId=${companyId}" class="img">
+        ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid">`: data.image.endsWith('.png') ? `<img src=${data.image} alt="Image" class="img-fluid ">` : data.image.endsWith('.jpeg') ? `<img src=${data.image} alt="Image" class="img-fluid ">`: `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`}
         </a>
         <div class="property-content border">
             <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad" }, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>

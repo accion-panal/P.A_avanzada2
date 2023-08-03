@@ -76,7 +76,7 @@ export default async function renderCall(){
               item.image = item.image.replace(/\\/g, "//");
               return item;
           });
-          //* si container-propiedad es distinto de Null, hara un innerHTML
+          //* si container-propiedad es distinto de Null, hara un innerHTML 
           //! esto es para evitar errores
           let containerGrid = document.getElementById('container-prop-card');
           if (containerGrid !== null) {
