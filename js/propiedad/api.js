@@ -1,8 +1,11 @@
-import { getCommune,getRegiones, getPropertiesForCustomUrl } from "../services/PropertiesServices.js";
-import renderCall from "../propiedad/render.js";
-import { PropertyData,limitDataApi } from "../Data/userId.js";
+import renderCall from "./render.js";
+
+import { getPropertiesForCustomUrl } from "../services/PropertiesServices.js";
+import { getRegiones, getCommune } from "../services/PropertiesServices.js";
+import { PropertyData,limitDataApi } from '../Data/userId.js'
 
 export default async function apiCall() {
+
   const { CodigoUsuarioMaestro, companyId, realtorId } = PropertyData;
   let { data } = await getRegiones();
 
@@ -10,10 +13,10 @@ export default async function apiCall() {
   let storedGlobalQuery = localStorage.getItem('globalQuery');
   if (storedGlobalQuery) {
     response = JSON.parse(storedGlobalQuery);
-    console.log('api :',response)
+    // console.log('api :',response)
   }
 
-  console.log(response);
+  // console.log(response);
 
   if(response != undefined){
       // hacer consulta a la api
@@ -55,6 +58,7 @@ export default async function apiCall() {
   }
 
   renderCall();
+
 }
 
 
