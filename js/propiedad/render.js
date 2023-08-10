@@ -66,31 +66,40 @@ export default async function renderCall(){
 
 
 
-// const filterCantProp = document.getElementById('filter-cant-prop');
 
-// filterCantProp.addEventListener('change', handleFilterChangeCant )
+//todo: Cantidad de limite en las propiedades
+const filtroLimit = document.getElementById('FilterLimit');
+filtroLimit.addEventListener('change', handleLimitChange);
+async function handleLimitChange() {
+    
+    try {
+        //* el segundo digito es el limit
+        response = await getProperties(1, filtroLimit.value, CodigoUsuarioMaestro, 1, companyId, realtorId);
 
-// function handleFilterChangeCant(){
-//     const filterValue = filterCantProp.value;
-//     console.log(filterValue)
-
-//     if( filterValue === "3"){
-//         limitDataApi.limit = 3;
-//         localStorage.setItem('globalResponse', JSON.stringify(limitDataApi.limit));
-
-//     }else if( filterValue === "6"){
-//         limitDataApi.limit = 6;
-//     }else if (filterValue === "9"){
-//         limitDataApi.limit = 9
-//     }else{   
-//     }
-//     showItems()
-
-
-// }
-// console.log(handleFilterChangeCant())
-
-// handleFilterChangeCant();
+        //* setear variables
+        let maxPage =  Math.ceil(response.meta.totalItems / response.meta.limit);
+        //* Guardar vaariables en el localStorage
+        localStorage.setItem('globalResponse', JSON.stringify(response));
+        localStorage.setItem('LimitPages', JSON.stringify(maxPage));
+        localStorage.setItem('countPage', JSON.stringify(1));
+        localStorage.setItem('LimitProperties', filtroLimit.value);
+        
+        //* Actualizar variables
+        data = response.data;
+        //* llamar funciones para actualizar visualmente.
+        data = data.map(item => {
+            // Reemplazar "\\" por "//" en la propiedad "image"
+            item.image = item.image.replace(/\\/g, "//");
+            return item;
+        });
+        
+        paginationCall();
+        showItems();
+    } catch (error) {
+        console.error('Error in handleLimitChange:', error);
+    }
+    
+}
   
       //todo: LLamamos a la funcion que muestra las cards
       showItems();
