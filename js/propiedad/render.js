@@ -5,6 +5,7 @@ import { PropertyData, limitDataApi } from "../Data/userId.js";
 import paginationCall from "../utils/pagination.js";
 import apiCallMap from "../propiedad/apiMapProp.js";
 
+
 export default async function renderCall(){
 
       //* INICIALIZACION DE VARIABLES
@@ -62,6 +63,34 @@ export default async function renderCall(){
           //* Se llama al showItems para actualizar las cards
           showItems();
       }
+
+
+
+// const filterCantProp = document.getElementById('filter-cant-prop');
+
+// filterCantProp.addEventListener('change', handleFilterChangeCant )
+
+// function handleFilterChangeCant(){
+//     const filterValue = filterCantProp.value;
+//     console.log(filterValue)
+
+//     if( filterValue === "3"){
+//         limitDataApi.limit = 3;
+//         localStorage.setItem('globalResponse', JSON.stringify(limitDataApi.limit));
+
+//     }else if( filterValue === "6"){
+//         limitDataApi.limit = 6;
+//     }else if (filterValue === "9"){
+//         limitDataApi.limit = 9
+//     }else{   
+//     }
+//     showItems()
+
+
+// }
+// console.log(handleFilterChangeCant())
+
+// handleFilterChangeCant();
   
       //todo: LLamamos a la funcion que muestra las cards
       showItems();

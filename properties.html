@@ -200,18 +200,25 @@
 			<div class="col-lg-3 col-sm-10 mb-2" style="padding-top: 10px;" id="total-prop">
 
 			</div>
-			<div class="col-lg-7 col-sm-10" style="padding-top: 10px ;padding-bottom: 7px;">
-				<div class="row p-1" style="padding-top: 10px;">
-					<div class="col-lg-5 col-sm-12 text-center">  
+			<div class="col-lg-3 col-sm-10" style="padding-top: 10px ;padding-bottom: 7px;">
 						<select id="FilterPrice" class="form-select text-center" aria-label="Default select example" style="margin-right: 10px;width: 100%!important;">
 							<option disabled selected>Seleccione una opción</option>
 								<option value="MenorMayor">Precio de menor a mayor</option>
 								<option value="MayorMenor">Precio de mayor a menor</option>
+						</select>		
+			</div>
+			<div class="col-lg-2 col-sm-10" style="padding-top: 10px ;padding-bottom: 7px;">
+				<div class="row p-1" style="padding-top: 10px;">
+					<div class="col-lg-5 col-sm-12 text-center">  
+						<select id="filter-cant-prop" class="form-select text-center" aria-label="Default select example" style="margin-right: 10px;width: 100%!important;">
+								<option value="3">3</option>
+								<option value= "6" selected>6</option>
+								<option value= "9">9</option>
 						</select>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-2 col-sm-10 grilla-custom" style="padding-top: 10px ;">
+			<div class="col-lg-3 col-sm-10 grilla-custom" style="padding-top: 10px ;">
 				<div class="custom-pagination">
 					<a href="properties.html"class="active"><i class='bx bx-grid-alt i-iconos'></i></a>
 					<a href="properties-map.html"><i class='bx bx-map  i-iconos'  ></i></a>
@@ -241,13 +248,8 @@
 					</div>
 					<div class="col-12">
 						<div class="widget">
-							<ul class="list-unstyled social ">
-								<h4 class="text-white"> Descubre</h4>
-								<li class="ico-sty"><a href="#" ><span class="icon-facebook"></span></a></li>
-								<li class="ico-sty"><a href="#" ><span class="icon-instagram"></span></a></li>
-								<li class="ico-sty"><a href="#" ><span class="icon-twitter"></span></a></li>
-								<li class="ico-sty"><a href="#" ><span class="icon-linkedin"></span></a></li>
-		
+							<ul class="list-unstyled social " id="redes-contact">
+
 							</ul>
 						</div> <!-- /.widget -->
 					</div>
@@ -313,6 +315,8 @@
 
 	<script type="module" src="js/utils/filterOnSearch.js"></script>
 	<script type="module" src="js/utils/getSelects.js"></script>
+	<script type="module" src="js/utils/filterCantProps.js"></script>
 	<script type="module" src="js/Data/ContactInfo.js"></script>
+	<script type="module" src="js/Data/RedesContact.js"></script>
   </body>
   </html>
