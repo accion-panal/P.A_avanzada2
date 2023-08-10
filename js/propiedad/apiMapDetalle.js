@@ -1,9 +1,9 @@
 import { getPropertiesForId } from "../services/PropertiesServices.js";
 
 
-export default async function apiCallMapDetail(id, statusId, companyId){
+export default async function apiCallMapDetail(id, realtorId,statusId, companyId){
 
-let {data} = await getPropertiesForId(id, statusId, companyId );
+let {data} = await getPropertiesForId(id,realtorId ,statusId, companyId );
 
 
 const LngLat = data.LngLat.replace("{", "")
@@ -14,7 +14,7 @@ const LngLat = data.LngLat.replace("{", "")
 		.replace(" ", "")
 		.split(":");
 
-console.log(id)
+
 
 mapboxgl.accessToken = 'pk.eyJ1Ijoic2VyZ2lvdmVyYWhlcm5hbmRlemJpZGF0YSIsImEiOiJjbDMwZHc4cmswMDdqM2NydmIzYWF0cGl4In0.hsYQFPebleAB4j6mRckMzQ'
 const map = new mapboxgl.Map({

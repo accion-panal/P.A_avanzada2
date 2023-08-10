@@ -3,8 +3,8 @@ export const PropertyData = {CodigoUsuarioMaestro: 0, companyId: 1, realtorId:0}
 export const limitDataApi = { limit: 0};
 
 export const ContactInformation = {
-    footerAddress:'Alonso de Córdova #5870, piso 18, oficina 1804, Las Condes',
-    footerPhone:'+562 29840258',
+    footerAddress:'Alonso de Córdova #5870, piso 17 - 18, oficina 1804, Las Condes',
+    footerPhone:'+569 7890 5617',
     footerEmail:'contacto@partnersadvisers.cl',
 
 }

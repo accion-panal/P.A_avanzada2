@@ -5,8 +5,8 @@ import ExchangeRateServices from "../services/ExchangeRateServices.js";
 
 import { parseToCLPCurrency, clpToUf } from "../utils/getExchangeRate.js"
 
-export default async function apiDetalleCall(id, statusId, companyId) {
-	let { data } = await getPropertiesForId(id, statusId, companyId);
+export default async function apiDetalleCall(id, realtorId, statusId, companyId) {
+	let { data } = await getPropertiesForId(id,realtorId,  statusId, companyId);
 
 	const response = await ExchangeRateServices.getExchangeRateUF();
 	const ufValue = response?.UFs[0]?.Valor

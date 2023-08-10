@@ -106,7 +106,7 @@ document.getElementById("total-prop").innerHTML = `<span>${response.meta.totalIt
 
 let splide = new Splide(".splide", {
     type    : 'loop',
-    perPage : 2,
+    perPage : 3,
     autoplay: 'play',
     drag:true,   
     breakpoints: {
