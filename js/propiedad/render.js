@@ -158,10 +158,10 @@ async function handleLimitChange() {
               `).join("");
           };
   
-          let containerMap = document.getElementById('div-map-section');
-          if (containerMap !== null) {
-              apiCallMap()
-          };
+        //   let containerMap = document.getElementById('div-map-section');
+        //   if (containerMap !== null) {
+        //       apiCallMap()
+        //   };
       };
 
 

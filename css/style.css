@@ -9655,6 +9655,15 @@ textarea {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
+.property-item .property-content .texto-titulo:hover{
+  transition : height 3s
+
+}
+
+.property-item {
+  height: 100%;
+}
+
 .property-item.mb-30 {
   margin-bottom: 30px; }
 
@@ -10393,12 +10402,13 @@ html {
   /* line-clamp: 2 !important; */
   cursor: pointer !important;
   overflow: hidden;
+  height: 80px;
+  transition: height 1s ease  !important;
 }
 
 .texto-titulo:hover{
-  display: block !important;
   cursor: default;
-  transition: 0.2s ease-in-out !important;
+  height: 155px;
 }
 
 .img-carroucel{
