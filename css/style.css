@@ -10276,7 +10276,6 @@ html {
   }
 }
 
-
 .property-item.mb-5 .card-serv:hover  {
   background-color: red !important;
   color: white;
@@ -10287,8 +10286,11 @@ html {
 }
 
 .grilla-custom{
-  text-align: right;
-
+  display: flex;
+  justify-content: end;
+}
+.grilla-custom ul .nav-item{
+  margin: 0 5px;
 }
 
 .hr-l{
@@ -10483,4 +10485,9 @@ html {
       top: 50%;
       left: 50%;
     }
+}
+
+.initilMap{
+  height: 0; 
+  overflow: hidden;
 }

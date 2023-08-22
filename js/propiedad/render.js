@@ -158,7 +158,75 @@ async function handleLimitChange() {
               `).join("");
           };
   
-      };
-
-
+      };  
+    let containerMap = document.getElementById('container-map-prop');
+    if(containerMap!== null ){
+      document.getElementById('container-map-prop').innerHTML = data.map(data => 
+        `<li class="splide__slide">
+        <div class="col-xs-12 col-md-6 col-lg-12 col-sm-12 carta-grilla">
+        <div class="property-item text-center">
+            <a href="/property-single.html?${data.id}&realtorId=${realtorId}&statusId=${1}&companyId=${companyId}" class="img">
+            ${data.image.endsWith('.jpg') ? `<img src=${data.image} alt="Image" class="img-fluid">`: data.image.endsWith('.png') ? `<img src=${data.image} alt="Image" class="img-fluid ">` : data.image.endsWith('.jpeg') ? `<img src=${data.image} alt="Image" class="img-fluid ">`: `<img src='https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' alt="Image" class="img-fluid">`}
+            </a>
+            <div class="property-content border">
+                <p style="margin-bottom: 0;"> <i class="fa fa-map-marker fa-lg"></i> ${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad" }, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile</p>
+                <a href="/property-single.html?${data.id}&realtor=${realtorId}&statusId=${1}&companyId=${companyId}">
+                    <span class="city d-block mb-3 texto-titulo" style="font-weight: bold;font-size: 25px;">${data.title != null && data.title != undefined ? data.title : "No cuenta con titulo"}</span>
+                </a>
+                <p style="font-size: 20px;">REF: ${data.id}</p>
+    
+                <div class="" style="border-top: 2px solid #ffb649;">
+                    <div class="row p-3 ">
+                        <div class="col-5 hr-l">
+                            <div class="row ">
+                                <div class="col-12">Dormitorios</div>
+                                <div class="col-12">${data.bedrooms != undefined && data.bedrooms != null && data.bedrooms != "" ? data.bedrooms : "0" }</div>
+                            </div>
+                        </div>
+                        <div class="col-3 hr-l">
+                            <div class="row ">
+                                <div class="col-12">UF</div>
+                                <div class="col-12">${clpToUf(data.price, ufValueAsNumber)}</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col-12">Baños</div>
+                                <div class="col-12">${data.bathrooms != undefined && data.bathrooms != null && data.bathrooms != "" ? data.bathrooms : "0" }</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </li>`).join('');
+    
+    let splide = new Splide(".splide", {
+        lazyLoad: 'nearby',
+        perPage : 3,
+        autoplay: 'play',
+        rewind : true,
+        perMove: 1,
+        drag:true,   
+        breakpoints: {
+            1200:{
+             perPage:2
+            },
+            990:{
+            perPage : 1,
+            focus:'center'     
+            },
+           766:{
+            perPage : 1
+           } 
+        }
+    });
+    splide.mount();
+    }
 }
+    
+document.addEventListener("DOMContentLoaded", function () {
+    let splide = new Splide(".splide");
+    splide.mount();
+});
