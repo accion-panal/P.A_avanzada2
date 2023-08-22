@@ -10440,6 +10440,12 @@ html {
 }
 
 @media screen and (max-width:370px) {
+
+  .logo-emp{
+    width: 100% !important;
+    height: auto;
+    margin-left: 0;
+  }
   .list-caract-prop {
     display: flex;
     line-height: 0;
@@ -10453,4 +10459,28 @@ html {
   .list-caract-prop li span{
     font-size: 20px;
   }
+
+  .img-footer{
+    width: 100% !important;
+    height: 40%;
+  }
+
+  .site-footer .social li a{
+    width: 40px;
+    height: 40px;
+  }
+  .site-footer .social li a > span{
+    top: 27%;
+    left: 36%;
+  }
+
+  .social a {
+    width: 20px;
+    height: 20px;
+ }
+    .social a span {
+      font-size: 20px;
+      top: 50%;
+      left: 50%;
+    }
 }
