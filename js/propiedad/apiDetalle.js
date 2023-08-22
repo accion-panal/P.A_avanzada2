@@ -84,7 +84,7 @@ export default async function apiDetalleCall(id, realtorId, statusId, companyId)
 
 
 
-	document.getElementById('title-cod-ubi-prop').innerHTML = `
+document.getElementById('title-cod-ubi-prop').innerHTML = `
 <h1 class="heading " style="font-weight: bold; color: #4D4D4D;">${data.title != undefined && data.title != null ? data.title : "No cuenta con titulo"}</h1>
 
 <p>
@@ -95,8 +95,7 @@ export default async function apiDetalleCall(id, realtorId, statusId, companyId)
 	document.getElementById('price-uf-opera-prop').innerHTML = `
                     <div class="row">
 						<div class="col-lg-12 col-sm-12" style="display: flex;justify-content: right;">
-							<b>
-								
+							<b>							
 								<h1 class="heading " style="font-weight: bold; color: #55555b;">UF ${clpToUf(data.price, ufValueAsNumber)}</h1>
 							</b>
 						</div>
@@ -131,48 +130,25 @@ export default async function apiDetalleCall(id, realtorId, statusId, companyId)
 `;
 
 	document.getElementById('caract-prop').innerHTML = `
-<div class="row " style="height: 100%;">
-								<div class="col-12">
-									<div class="row " style="font-size: 40px;">
-										<div class="col-6 text-end">
-											<i class="fa fa-bed  "  aria-hidden="true"></i>
-										</div>
-										<div class="col-6 text-start">
-											${data.bedrooms || "0"}
-										</div>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="row " style="font-size: 40px;">
-										<div class="col-6 text-end">
-											<i class="fa fa-bath  "  aria-hidden="true"></i>
-										</div>
-										<div class="col-6">
-                                        ${data?.bathrooms || "0"}
-										</div>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="row " style="font-size: 40px;">
-										<div class="col-6 text-end">
-											<i class="fa fa-car  "  aria-hidden="true"></i>
-										</div>
-										<div class="col-6">
-                                        ${data?.coveredParkingLots || "0"}
-										</div>
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="row " style="font-size: 40px;">
-										<div class="col-6 text-end">
-											<i class="fa fa-ruler  "  aria-hidden="true"></i>
-										</div>
-										<div class="col-6">
-                                        ${data?.surface_m2 || "0"}
-										</div>
-									</div>
-								</div>
-							</div>`;
+				<ul class="list-caract-prop">
+					<li style="font-size: 30px;">
+						<i class="fa fa-bed"  aria-hidden="true"></i>
+						<span>${data.bedrooms || "0"}</span>
+					</li>
+					<li style="font-size: 30px;">		
+						<i class="fa fa-bath  "  aria-hidden="true"></i>
+						<span>${data?.bathrooms || "0"}</span>
+					</li>
+					<li style="font-size: 30px;">	
+						<i class="fa fa-car"  aria-hidden="true"></i>
+						<span>${data?.coveredParkingLots || "0"}</span>			
+					</li>
+					<li style="font-size: 30px;">
+							<i class="fa fa-ruler  "  aria-hidden="true"></i>					
+							<span>${data?.surface_m2 || "0"}</span>		
+						</div>				
+					</li>
+				</ul>`;
 
 	document.getElementById('title-map').innerHTML = `
 		<div class="col-lg-4" style="padding-left: 150px;">

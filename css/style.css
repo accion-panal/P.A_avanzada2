@@ -10431,3 +10431,26 @@ html {
 .list-caract-gral li{
   margin: 10px;
 }
+
+.list-caract-prop {
+  display: block;
+  list-style: none;
+  line-height: 78px;
+  text-align: center;
+}
+
+@media screen and (max-width:370px) {
+  .list-caract-prop {
+    display: flex;
+    line-height: 0;
+  }
+  .list-caract-prop li {
+    margin: 10px 10px;
+  }
+  .list-caract-prop li i{
+    font-size: 20px;
+  }
+  .list-caract-prop li span{
+    font-size: 20px;
+  }
+}
