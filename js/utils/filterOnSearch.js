@@ -66,7 +66,7 @@ if (storedGlobalQuery) {
     if(globalQuery.region != null){
         const regionData = data.regions.find(region => region.id == globalQuery.region);
         region = `${regionData.name}`;
-        console.log(region)
+        // console.log(region)
 
     }
     //* Actualizar variable segun el globalQuery
@@ -74,7 +74,7 @@ if (storedGlobalQuery) {
         let aux = await getCommune(globalQuery.region);
         const communeData = aux.data.find(commune => commune.id == globalQuery.commune);
         commune = `${communeData.name}`
-        console.log(commune)
+        // console.log(commune)
 
     }
     //* Actualizar variable segun el globalQuery
@@ -101,7 +101,7 @@ document.getElementById('typeOfProperty').addEventListener('change' ,(element) =
 //! Region
 document.getElementById("regionTextId").addEventListener( "change", (element) => {
     region = element.target.value;
-    console.log('id region: ',region);
+    // console.log('id region: ',region);
 })
 
 //! Comuna
@@ -145,8 +145,8 @@ document.getElementById("max_price").addEventListener( "change", (element) => {
 
 //TODO: Al hacer click en buscar, Mostrara todos los valores guardados
 document.getElementById('buscar2')?.addEventListener('click', async() => {
-    console.log('=======================')
-    console.log('FilterOnSearch')
+    // console.log('=======================')
+    // console.log('FilterOnSearch')
     //* mostrar spinner loading
     document.getElementById("buscar2").innerHTML = `<div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>`;
 
@@ -172,16 +172,16 @@ document.getElementById('buscar2')?.addEventListener('click', async() => {
 
 
     //* Mostrar variables en console log
-    console.log('operation ',operation); //operacion - venta,arriendo,etc
-    console.log('typeOfProperty ',typeOfProperty); //typeOfProperty
-    console.log('region ',nameRegion); //typeOfProperty
-    console.log('commune ',commune); //typeOfProperty
-    console.log('bedrooms ',bedrooms); //bedrooms
-    console.log('bathrooms ',bathrooms); //bedrooms
-    console.log('parkingLots ',parkingLots); //Estacionamientos
-    console.log('typePrice ',typePrice); //tipo de price
-    console.log('minPrice ',minPrice); //precio minimo
-    console.log('maxPrice ',maxPrice); //precio maximo
+    // console.log('operation ',operation); //operacion - venta,arriendo,etc
+    // console.log('typeOfProperty ',typeOfProperty); //typeOfProperty
+    // console.log('region ',nameRegion); //typeOfProperty
+    // console.log('commune ',commune); //typeOfProperty
+    // console.log('bedrooms ',bedrooms); //bedrooms
+    // console.log('bathrooms ',bathrooms); //bedrooms
+    // console.log('parkingLots ',parkingLots); //Estacionamientos
+    // console.log('typePrice ',typePrice); //tipo de price
+    // console.log('minPrice ',minPrice); //precio minimo
+    // console.log('maxPrice ',maxPrice); //precio maximo
 
 
     //* Generar url

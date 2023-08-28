@@ -49,7 +49,7 @@ export default async function apiCall() {
 
 
       let urlFilters = operation+typeOfProperty+bedrooms+bathrooms+parkingLots+minPrice+maxPrice+nameRegion+commune;
-      console.log('urlFilters: ',urlFilters)
+      // console.log('urlFilters: ',urlFilters)
       let response2 = await getPropertiesForCustomUrl(1,limitDataApi.limit,CodigoUsuarioMaestro,1,companyId,realtorId,urlFilters);
       localStorage.setItem('globalResponse', JSON.stringify(response2));
 

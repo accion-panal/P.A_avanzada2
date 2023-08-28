@@ -42,8 +42,8 @@ showItems();
 
 function handleFilterChange() {
   const selectedValue = filtroSelect.value;
-  console.log(selectedValue);
-  console.log(data);
+//   console.log(selectedValue);
+//   console.log(data);
 
   let dataOrdenada;
 
@@ -54,7 +54,7 @@ function handleFilterChange() {
     /* console.log('La opción seleccionada es Menor mayor'); */
     dataOrdenada = data.sort((a, b) => a.price - b.price);
   }
-  console.log(dataOrdenada);
+//   console.log(dataOrdenada);
   showItems();
 }
 
