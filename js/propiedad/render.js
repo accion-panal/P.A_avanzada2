@@ -140,8 +140,8 @@ async function handleLimitChange() {
                                     </div>
                                     <div class="col-3 hr-l">
                                         <div class="row ">
-                                            <div class="col-12">UF</div>
-                                            <div class="col-12">${clpToUf(data.price, ufValueAsNumber)}</div>
+                                         ${ data.currency.isoCode !='CLP' ?  `<div class="col-12">UF</div><div class="col-12">${data.price}</div>`:`<div class="col-12">CLP</div><div class="col-12">${parseToCLPCurrency(data.price * ufValueAsNumber2)}</div>`}
+                                          
                                         </div>
                                     </div>
                                     <div class="col-4">

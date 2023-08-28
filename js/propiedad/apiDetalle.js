@@ -11,6 +11,7 @@ export default async function apiDetalleCall(id, realtorId, statusId, companyId)
 	const response = await ExchangeRateServices.getExchangeRateUF();
 	const ufValue = response?.UFs[0]?.Valor
 	const ufValueAsNumber = parseFloat(ufValue.replace(',', '.'));
+    const ufValueAsNumber2 = parseInt(ufValue.replace('.', '').replace(',', '.'));
 
 
 
@@ -92,6 +93,20 @@ document.getElementById('title-cod-ubi-prop').innerHTML = `
     ${data.city != undefined && data.city != "" && data.city != null ? data.city : "No registra ciudad"}, ${data.commune != undefined && data.commune != "" && data.commune != null ? data.commune : "No registra comuna"}, Chile
 </p>`;
 
+
+if(data.currency.isoCode != 'CLP'){
+	document.getElementById('price-uf-opera-prop').innerHTML = `
+	<div class="row">
+		<div class="col-lg-12 col-sm-12" style="display: flex;justify-content: right;">
+			<b>							
+				<h1 class="heading " style="font-weight: bold; color: #55555b;">UF ${data.price}</h1>
+			</b>
+		</div>
+		<div class="col-lg-12 col-sm-12" style="display: flex;justify-content: right;">
+			<h4 class="heading" style="color:#ffb649;">CLP ${parseToCLPCurrency(data.price * ufValueAsNumber2)}</h4>
+		</div>
+	</div>`;
+}else {
 	document.getElementById('price-uf-opera-prop').innerHTML = `
                     <div class="row">
 						<div class="col-lg-12 col-sm-12" style="display: flex;justify-content: right;">
@@ -103,6 +118,8 @@ document.getElementById('title-cod-ubi-prop').innerHTML = `
 							<h4 class="heading" style="color:#ffb649;">CLP ${parseToCLPCurrency(data?.price)}</h4>
 						</div>
 					</div>`;
+}
+
 
 
 	document.getElementById('title-descrip').innerHTML = `
