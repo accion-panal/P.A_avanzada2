@@ -1,4 +1,4 @@
-export const PropertyData = {CodigoUsuarioMaestro: 24, companyId: 20, realtorId:0};
+export const PropertyData = {CodigoUsuarioMaestro: 24, companyId: 10091, realtorId:0};
 
 export const limitDataApi = { limit: 0};
 
