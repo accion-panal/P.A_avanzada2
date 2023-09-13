@@ -1,6 +1,6 @@
 export const PropertyData = {CodigoUsuarioMaestro: 24, companyId: 10091, realtorId:0};
 
-export const limitDataApi = { limit: 0};
+export const limitDataApi = { limit: 6};
 
 export const ContactInformation = {
     footerAddress:'Alonso de Córdova #5870, piso 17 - 18, oficina 1804, Las Condes',

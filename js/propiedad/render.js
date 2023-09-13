@@ -69,7 +69,8 @@ export default async function renderCall(){
 
 //todo: Cantidad de limite en las propiedades
 const filtroLimit = document.getElementById('FilterLimit');
-filtroLimit.addEventListener('change', handleLimitChange);
+if(filtroLimit !== null){
+    filtroLimit.addEventListener('change', handleLimitChange);
 async function handleLimitChange() {
     
     try {
@@ -100,6 +101,9 @@ async function handleLimitChange() {
     }
     
 }
+}else {
+}
+
   
       //todo: LLamamos a la funcion que muestra las cards
       showItems();
@@ -109,10 +113,10 @@ async function handleLimitChange() {
   
       //todo: creacion de la funcion ShowItems
       function showItems() {
-          data = data.map(item => {
-              // Reemplazar "\\" por "//" en la propiedad "image"
-              item.image = item.image.replace(/\\/g, "//");
-              return item;
+        data = data.map(item => {
+            // Reemplazar "\\" por "//" en la propiedad "image"
+            item.image = item.image.replace(/\\/g, "//");
+            return item;
           });
           //* si container-propiedad es distinto de Null, hara un innerHTML 
           //! esto es para evitar errores
@@ -158,7 +162,7 @@ async function handleLimitChange() {
               `).join("");
           };
   
-      };  
+        
     let containerMap = document.getElementById('container-map-prop');
     if(containerMap!== null ){
       document.getElementById('container-map-prop').innerHTML = data.map(data => 
@@ -202,31 +206,34 @@ async function handleLimitChange() {
     </div>
     </li>`).join('');
     
-    let splide = new Splide(".splide", {
-        lazyLoad: 'nearby',
-        perPage : 3,
-        autoplay: 'play',
-        rewind : true,
-        perMove: 1,
-        drag:true,   
-        breakpoints: {
-            1200:{
-             perPage:2
-            },
-            990:{
-            perPage : 1,
-            focus:'center'     
-            },
-           766:{
-            perPage : 1
-           } 
-        }
-    });
-    splide.mount();
+        let splide = new Splide(".splide", {
+            lazyLoad: 'nearby',
+            perPage : 3,
+            autoplay: 'play',
+            rewind : true,
+            perMove: 1,
+            drag:true,   
+            breakpoints: {
+                1200:{
+                perPage:2
+                },
+                990:{
+                perPage : 1,
+                focus:'center'     
+                },
+            766:{
+                perPage : 1
+            } 
+            }
+        });
+        splide.mount();
     }
+    
+};
+
 }
     
 document.addEventListener("DOMContentLoaded", function () {
     let splide = new Splide(".splide");
     splide.mount();
-});
+})
